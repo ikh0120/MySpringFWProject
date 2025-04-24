@@ -10,7 +10,7 @@ public class HelloJunitTest {
 	public void helloBean() {	//public 안써도 됨
 		//System.out.println("Hello Junit"); // 이렇게 sysout 안쓰고 Assertions 씀
 		//1. Container 객체 생성
-		ApplicationContext context = new GenericXmlApplicationContext("");
+		ApplicationContext context = new GenericXmlApplicationContext("classpath:hello-di.xml");
 	}
 	
 }
