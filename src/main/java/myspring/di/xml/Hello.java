@@ -27,7 +27,7 @@ public class Hello {
 	}
 
 	public void setName(String name) {
-		System.out.println("setName() 메서드 호출됨" + name);
+		System.out.println("setName() 메서드 호출됨 " + name);
 		this.name = name;
 	}
 

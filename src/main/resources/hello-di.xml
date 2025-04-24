@@ -16,10 +16,9 @@
 	<!-- Hello 클래스를 Spring Bean으로 설정 Setter Injection 방식 -->
 	<!-- 개별로 설정하는 것 한꺼번에 하는건 Constructuer Injection임 -->
 	<!-- 참조하는 변수가 있어서 다른 방법으로 ㄱㄱ -->
-	<bean id="hello" class="myspring.di.xml.Hello">
+	<bean id="hello" class="myspring.di.xml.Hello" scope="prototype">
 		<property name="name" value="스프링" />
 		<property name="printer" ref="strPrinter" />
-		
 	</bean>
 	
 </beans>
