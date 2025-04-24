@@ -26,7 +26,7 @@
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
-		<version>${spring.version}</version>
+		<version>${spring.version}</version> <!-- 한 번만 위의 properties 태그의 spring.version 태그에서 바꾸면 전체 바뀜 그래서 이렇게 씀 -->
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
