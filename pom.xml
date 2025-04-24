@@ -21,6 +21,8 @@
   </properties>
 
   <dependencies>
+  	<!-- 구글에 Maven Repository 검색해서 spring context 검색 후 첫번째 꺼 클릭 ->
+  		  버전 선택 후 조금 내려가서 밑에 Maven, Gradle, SBT, 등등 있는데 여기서 Maven 선택 후 Scope를 Compile로 맞추고 밑의 텍스트 복사/붙여넣기-->
   	<!-- 이거해서 Maven Dependencies 폴더가 생김 -->
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 	<dependency>
@@ -29,6 +31,8 @@
 		<version>${spring.version}</version> <!-- 한 번만 위의 properties 태그의 spring.version 태그에서 바꾸면 전체 바뀜 그래서 이렇게 씀 -->
 	</dependency>
 	
+	<!-- 마찬가지로 Maven Repository -> Junit Jupiter API 검색 ->
+		 Junit Jupiter API 선택 후 5.9.3 버전 선택 -> Maven 다운로드 -> scope 태그 만들고 test 넣기-->
 	<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 	<dependency>
 	    <groupId>org.junit.jupiter</groupId>
