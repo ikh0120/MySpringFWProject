@@ -8,6 +8,10 @@ public class Hello {
 	List<String> names;
 
 	public Hello() {
+		// Hello h = new Hello(); //여기서 h가 바로 this에 해당하는 객체
+		// this	//현재 객체(instance) 자체
+		// this.getClass() 	//현재 객체  h에 해당하는 클래스의 정보를 담은 Class 객체 반환
+		// this.getClass().getName()  //클래스 이름을 패키지명.클래스명 형태로 반환
 		System.out.println(this.getClass().getName() + " 기본생성자 호출됨!");
 	}
 
