@@ -26,7 +26,7 @@ public class HelloJunitTest {
 		Hello helloById = (Hello)context.getBean("hello");
 		Hello helloByType = context.getBean("hello", Hello.class);
 		
-		// 여기서 Singleton Pattern인지 확인하기
+		// 여기서 Singleton Pattern인지 확인하기 bean의 scope="singleton"(Default)
 		// Spring Bean의 주소 비교
 		System.out.println(helloById == helloByType);// 주소 비교
 		// 같은 객체를 반환해준다
