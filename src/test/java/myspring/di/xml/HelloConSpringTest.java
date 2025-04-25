@@ -25,5 +25,11 @@ public class HelloConSpringTest {
 		assertEquals(3, hello.getNames().size());
 		
 		assertEquals("스프링클라우드", hello.getNames().get(2));// 리스트 인덱스 2 반환
+		
+		// list 값 모두 출력하기
+		// hello.getNames() ==> List<String> 타입
+		for (String name : hello.getNames()) {
+			System.out.println(name);
+		}
 	}
 }
