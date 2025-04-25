@@ -21,6 +21,7 @@ public class HelloConSpringTest {
 		// System.out.println(hello.sayHello()); // 궁금하니까 찍어봄
 		assertEquals("Hello 생성자", hello.sayHello());
 		hello.print();
-		
+	
+		assertEquals(3, hello.getNames().size());
 	}
 }
