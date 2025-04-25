@@ -41,6 +41,9 @@
 			</list>
 		</property>
 	</bean>	
-
-
+	
+	
+	<!-- Auto Component Scanning 설정 --> <!-- myspring.di.annot 패키지 내부 설정하기 -->
+	<context:component-scan base-package="myspring.di.annot" />
+	
 </beans>
