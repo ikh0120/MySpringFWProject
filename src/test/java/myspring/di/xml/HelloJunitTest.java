@@ -54,6 +54,11 @@ public class HelloJunitTest {
 		 */
 		assertSame(helloById, helloByType);
 		
+		/*2025-04-25 시작*/
+		//값을 비교하기
+		/* 앞과 뒤의 인자가 같은지 비교해줌 틀리면 JUnit이 틀리면 빨갛게 나오고
+		 * 들어간 파라미터가 같으면 초록불*/
+		assertEquals("Hello 스프링", helloById.sayHello());
 		
 		
 	} 
