@@ -21,6 +21,9 @@ public class HelloJunitTest {
 		 */
 		/*
 		 * context에는 strPrinter, conPrinter, hello 3개의 객체가 들어가있음
+		 */ 
+		/* Window/Show View/Other.../Navigator 탭을 키면 여기에
+		 * target에 classes, test-classes 폴더가 생기는데 하위 파일에 내가 만든 객체(bean)들이 있다.  
 		 */
 		ApplicationContext context = new GenericXmlApplicationContext("classpath:hello-di.xml");
 		//2. Container 객체가 생성한 Spring Bean을 요청하기
