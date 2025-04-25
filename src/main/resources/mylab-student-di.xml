@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Student 클래스를 Spring Bean으로 설정 -->
+	<bean id="emma" class="mylab.student.di.xml.Student">
+		<!-- setter 메서드 사용 -->
+		<property name="id" value="S001" />
+		<property name="name" value="엠마" />
+		<property name="score" value="90" />
+	</bean>
+
+	<bean id="john" class="mylab.student.di.xml.Student">
+		<!-- Student(id, name, score)에 하나하나 들어감 -->
+		<constructor-arg name="id" value="S002" />
+		<constructor-arg name="name" value="존" />
+		<constructor-arg name="score" value="75" />
+	</bean>
+	
+	<bean id="jane" class="mylab.student.di.xml.Student">
+		<property name="id" value="S003" />
+		<property name="name" value="제인" />
+		<property name="score" value="85" />
+	</bean>
+	
+	<!-- Cource 클래스를 Spring Bean으로 설정 -->
+	<bean id="javaCourse" class="mylab.student.di.xml.Course">
+		<!-- 이거는 setter 메서드 사용 -->
+		<property name="courseId" value="C001" />
+		<property name="courseName" value="Java Programming" />
+		
+		<!-- 이거는 list 타입 setter -->
+		<property name="students">
+			<list>
+				<!-- ref 태그 사용해서 bean의 id를 bean에 넣음 -->
+				<ref bean="emma" />
+				<ref bean="john" />
+				<ref bean="jane" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- GradeService 클래스를 Spring Bean으로 설정 -->
+	<bean id="gradeService" class="mylab.student.di.xml.GradeService">
+		<property name="course" ref="javaCourse" />
+	</bean>
+</beans>
