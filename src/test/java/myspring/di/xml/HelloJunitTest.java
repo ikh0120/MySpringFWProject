@@ -8,7 +8,16 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 // Assertions에 포함 된 모든 static method를 import 한다. 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class HelloJunitTest {
+	ApplicationContext context ;
+	
+	@BeforeEach
+	void container() {
+		//1. Container 객체 생성
+		context = new GenericXmlApplicationContext("classpath:hello-di.xml");
+	}
 	
 	@Test
 	public void helloBean() {	//public 안써도 됨
@@ -25,7 +34,10 @@ public class HelloJunitTest {
 		/* Window/Show View/Other.../Navigator 탭을 키면 여기에
 		 * target에 classes, test-classes 폴더가 생기는데 하위 파일에 내가 만든 객체(bean)들이 있다.  
 		 */
-		ApplicationContext context = new GenericXmlApplicationContext("classpath:hello-di.xml");
+//		이거 @BeforeEach 어노테이션이 붙은 void container() 쪽으로
+//		ApplicationContext context = new GenericXmlApplicationContext("classpath:hello-di.xml");
+		
+		
 		//2. Container 객체가 생성한 Spring Bean을 요청하기
 		// Hello helloById = context.hello; // context는 객체(bean)들을 저장하고 있는 컨테이너일 뿐 hello라는 필드가 존재하지 않아서 에러남
 		Hello helloById = (Hello)context.getBean("hello");
@@ -55,11 +67,22 @@ public class HelloJunitTest {
 		assertSame(helloById, helloByType);
 		
 		/*2025-04-25 시작*/
-		//값을 비교하기
+		//값을 비교하기 // <property name="name" value="스프링" /> 이 설정 테스트 한 것임
 		/* 앞과 뒤의 인자가 같은지 비교해줌 틀리면 JUnit이 틀리면 빨갛게 나오고
 		 * 들어간 파라미터가 같으면 초록불*/
 		assertEquals("Hello 스프링", helloById.sayHello());
 		
+		/* 
+		 * helloById에 print()가 잘 호출되었냐 보는거
+		 * 이거 로직 재밌음 
+		 */
+		helloById.print();
+		
+		// Container 객체가 생성한 StringPrinter 스프링빈 요청하기
+		/*둘다 됨*/ //<property name="printer" ref="strPrinter" /> 이 설정 테스트 한 것임
+		// Printer printer = context.getBean("strPrinter", StringPrinter.class);
+		Printer printer = context.getBean("strPrinter", Printer.class);
+		assertEquals("Hello 스프링", printer.toString());
 		
 	} 
 	
