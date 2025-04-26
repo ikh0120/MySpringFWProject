@@ -19,7 +19,10 @@
 		개별로 설정하는 것 한꺼번에 하는건 Constructor Injection임 
 		참조하는 변수가 있어서 다른 방법으로 ㄱㄱ -->
 	<!-- Hello hello = new Hello(); // 기본 생성자 호출 -->
-	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton"> <!-- bean 태그 속성인 scope의 singleton 패턴은 Default 값임 -->
+	<!-- bean 태그 속성인 scope의 singleton 패턴은 Default 값임	
+		//singleton 패턴은 어떤 인스턴스를 만들던 같은 인스턴스라 침	
+		// bean을 사용할 때 마다 다른 인스턴스로 만들고싶으면 scope="prototype"으로 설정-->
+	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton"> 
 		<!-- hello.setName("스프링"); // setter 메서드 사용 -->
 		<!-- setter 메서드에서 set을 빼고 앞 글자를 소문자로 바꾸고 name에 대입하기 -->
 		<property name="name" value="스프링" />	<!-- 값타입은 value -->
