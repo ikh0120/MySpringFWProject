@@ -7,10 +7,12 @@
 
 	<!-- StringPrinter 클래스를 Spring Bean으로 설정 -->
 	<!-- StringPrinter strPrinter = new StringPrinter(); // (생성자 호출) -->
+	<!-- 스프링 컨테이너가 new StringPrinter()로 객체를 한번 만들어서 미리 관리하고, scope 기본값(singleton)이라 필요할 때마다 이 객체를 계속 재사용함 -->
 	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
 	
 	<!-- ConsolePrinter 클래스를 Spring Bean으로 설정 -->
 	<!-- ConsolePrinter conPrinter = new ConsolePrinter(); // (생성자 호출) -->
+	<!-- 스프링 컨테이너가 new ConsolePrinter()로 객체를 한번 만들어서 미리 관리하고, scope 기본값(singleton)이라 필요할 때마다 이 객체를 계속 재사용함 -->
 	<bean id="conPrinter" class="myspring.di.xml.ConsolePrinter" />
 	
 	
