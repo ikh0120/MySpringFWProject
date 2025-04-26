@@ -42,7 +42,7 @@ public class HelloSpringTest {
 		assertEquals("Hello 스프링", hello.sayHello());
 		/* 여긴 설명 주석 넣느라 못들음 찾아봐야 됨*/
 		hello.print();
-	
+		
 		assertEquals("Hello 스프링", strPrinter.toString());
 		// System.out.println(strPrinter.getClass()); // class myspring.di.xml.StringPrinter
 		// System.out.println(strPrinter.getClass().getName()); // myspring.di.xml.StringPrinter

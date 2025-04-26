@@ -22,10 +22,11 @@ public class HelloBeanSpringTest {
 	@Test
 	void helloBean() {
 		assertEquals("Hello 어노테이션", hello.sayHello());
-		hello.print();
-		
+		hello.print();		
 		assertEquals("Hello 어노테이션", printer.toString());
 		
-		
+		for(String name: hello.getNames()) {
+			System.out.println(name);
+		}
 	}
 }
