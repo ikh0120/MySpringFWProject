@@ -20,11 +20,11 @@ public class HelloSpringTest {
 	
 	// 여긴 설명 주석 넣느라 못들음 찾아봐야 됨
 	/*
+	 * @Autowired
+	 * Printer printer;
 	 * 이런 오류 생김 오류 뜨면 <Ctrl>+f 눌러서 Caused by 검색 ㄱㄱ
 	 * Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'myspring.di.xml.Printer' available: expected single matching bean but found 2: strPrinter,conPrinter
 	 * 왜냐? 
-	 * @Autowired
-	 * Printer printer;로 선언했는데
 	 * hello-di.xml에는 id가 printer인 빈이 없어 strPrinter로 맞춰줌
 	 */
 	@Autowired
@@ -44,10 +44,18 @@ public class HelloSpringTest {
 		hello.print();
 		
 		assertEquals("Hello 스프링", strPrinter.toString());
-		// System.out.println(strPrinter.getClass()); // class myspring.di.xml.StringPrinter
-		// System.out.println(strPrinter.getClass().getName()); // myspring.di.xml.StringPrinter
+		/*
+		 * System.out.println(strPrinter); //Hello 스프링
+		 * System.out.println(strPrinter.toString()); //Hello 스프링
+		 * System.out.println(strPrinter.getClass()); // class myspring.di.xml.StringPrinter
+		 * System.out.println(strPrinter.getClass().getName()); // myspring.di.xml.StringPrinter
+		 */
+		/* assertEquals("Hello 스프링", printer); 
+		 * // 이거는 System.out.println() 안에서 인스턴스 객체를 넣었을 때 toString()이 자동으로 붙는게 아니라서 JUnitTest 통과 못함*/
 		assertEquals("Hello 스프링", printer.toString());
 		
+		// 1. sayHello()반환값은 "Hello 스프링"이라 반환되는 문자열 값이 같아서 true 
+		// 2. "hello" bean 객체가 singleton Pattern이라 "hello"bean을 사용하면 모두 같은 인스턴스임
 		assertEquals("Hello 스프링", helloBean.sayHello());
 
 	}
