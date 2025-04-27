@@ -1,0 +1,33 @@
+// <context:property-placeholder location\="classpath:values.properties" />
+// hello-di.xml에 이런 태그가 있어서 values.properties 값을 읽어 "${}"안에 
+// values.properties 안의 변수값을 꺼내와 대입해줌
+
+// HelloBean.java의 @Component("helloBean") 때문에 밑의 빈이 만들어짐
+
+<bean id="printerBean" class="myspring.di.annot.PrinterBean"/>
+
+<bean id="helloBean" class="myspring.di.annot.HelloBean">
+	<property name="name" value="${myName}" />
+	<property name="values.properties.myPrinter" ref="${myPrinter}" />
+	<property name="names">
+		<list> 
+			<value>#{'${names.list.of.strings}'.split(",")}</value> // #은 문자열을 반환해서 ""로 안묶어도 됨
+		</list>
+	</property>
+</bean>
+
+이거는
+
+<bean id="printerBean" class="myspring.di.annot.PrinterBean"/>
+
+<bean id="helloBean" class="myspring.di.annot.HelloBean">
+	<property name="name" value="어노테이션" />
+	<property name="values.properties.myPrinter" ref="printerBean" />
+	<property name="names" >
+		<list> 
+			<value>Java</value>
+			<value>Spring</value>
+			<value>Kotlin</value>
+		</list>
+	</property>
+</bean>
