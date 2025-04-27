@@ -71,6 +71,7 @@ public class HelloJunitTest {
 		// "hello"라는  id의 bean은 singleton 스코프로 선언해서 인스턴스 이름은 달라도 같은 인스턴스라 쳐서 둘 다 같다고 나옴
 		assertSame(helloById, helloByType);
 		assertEquals(helloById, helloByType);
+		
 	} 
 	
 }
