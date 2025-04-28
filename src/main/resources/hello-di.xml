@@ -27,7 +27,8 @@
 	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton"> 
 		<!-- hello.setName("스프링"); // setter 메서드 사용 -->
 		<!-- setter 메서드에서 set을 빼고 앞 글자를 소문자로 바꾸고 name에 대입하기 -->
-		<property name="name" value="스프링" />	<!-- 값타입은 value -->
+		<!-- <property name="name" value="스프링" /> --> <!-- xml에서도 values.properties 치환자 사용 가능함 -->
+		<property name="name" value="${myName1}" />	<!-- 값타입은 value -->
 		<!-- 이거도 마찬가지로 hello.setPrinter(strPrinter) -->
 		<property name="printer" ref="strPrinter" /> <!-- 참조타입은 ref -->
 	</bean>
