@@ -61,6 +61,8 @@ public class HelloBeanConfigTest {
 		
 		assertEquals("Hello 어노테이션", printer.toString());
 		assertEquals("Hello 어노테이션", stringPrinter.toString());
+		
+		assertEquals(3, hello.getNames().size());
 	}
 	
 }
