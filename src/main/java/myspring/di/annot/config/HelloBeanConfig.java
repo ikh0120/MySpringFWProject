@@ -10,5 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 //<context:property-placeholder location="classpath:values.properties" />
 @PropertySource(value = "classpath:values.properties")
 public class HelloBeanConfig {
-	
+	public HelloBeanConfig() {
+		System.out.println(this.getClass().getName() + " Config 클래스 기본 생성자 호출됨!");
+	}
 }
