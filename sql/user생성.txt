@@ -9,7 +9,9 @@ MariaDB [mysql]> flush privileges;
 MariaDB [mysql]> exit;
 
 # spring 계정으로 접속하여 DB생성
-mysql -u spring –p
+// mysql -u spring –p // Access denied 떠서 
+mysql -u spring -p -h 127.0.0.1
+
 MariaDB [(none)]> show grants for current_user;
 MariaDB [(none)]> create database spring_db;
 MariaDB [(none)]> show databases;

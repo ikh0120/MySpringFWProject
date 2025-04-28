@@ -21,12 +21,16 @@ public class UserServiceTest {
 	public void UserServiceTest() {
 		assertNotNull(userService);
 		
-//		assertNotNull(userService.getUserRepository());
-//		assertEquals("MySQL", userService.getUserRepository().getDbType());
-		
-//		assertNotNull(userService.getSecurityService());
-		
-		assertTrue(userService.registerUser("IDID", "NAMENAME", "PASSWDPASSWD"));
+        // UserRepository 확인
+        assertNotNull(userService.getUserRepository());
+        assertEquals("MySQL", userService.getUserRepository().getDbType());
+        
+        // SecurityService(어노테이션으로 주입) 확인
+        assertNotNull(userService.getSecurityService());
+        
+        // 기능 테스트
+        assertTrue(userService.registerUser("user1", "홍길동", "password123"));
+        assertFalse(userService.registerUser("user2", "김철수", ""));	
 	}
 	
 }

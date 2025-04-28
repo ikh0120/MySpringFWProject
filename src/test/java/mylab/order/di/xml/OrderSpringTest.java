@@ -1,13 +1,11 @@
 package mylab.order.di.xml;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import javax.annotation.Resource;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -15,25 +13,26 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(locations = "classpath:mylab-order-di.xml")
 public class OrderSpringTest {
 	@Autowired
-	@Qualifier("shoppingCart")
-	ShoppingCart shoppingCart;
-	
+	ShoppingCart cart;
 	
 	@Autowired
-	@Qualifier("orderService")
-	OrderService orderService;
-	
-	
-	
-	@Test
-	void OrderSTest() {
-		System.out.println(shoppingCart.toString()); //ShoppingCart [products=[Product [id=P-001, name=콜라, price=1500.0], Product [id=P-002, name=빵, price=2000.0]]]
-		
-		assertEquals(3500.0, shoppingCart.getTotalPrice());
-		
-		System.out.println(orderService.toString()); //OrderService [shoppingCart=ShoppingCart [products=[Product [id=P-001, name=콜라, price=1500.0], Product [id=P-002, name=빵, price=2000.0]]]]
+	OrderService service;
+    
+    //ShoppingCart 검증
+    @Test
+    public void testShoppingCart() {        
+        assertNotNull(cart);
+        assertEquals(2, cart.getProducts().size());
+        assertEquals("노트북", cart.getProducts().get(0).getName());
+        assertEquals("스마트폰", cart.getProducts().get(1).getName());
+    }
 
-	}
-	
-
+    //OrderService 검증
+    @Test
+    public void testOrderService() {               
+        // 검증
+        assertNotNull(service);
+        assertNotNull(service.getShoppingCart());
+        assertEquals(2300000.0, service.calculateOrderTotal(), 0.001);
+    }
 }
