@@ -16,4 +16,30 @@
 		p:username="${db.username}"
 		p:password="${db.password}"
 	/>
+	
+	<!-- SqlSessionFactoryBean 설정 -->
+	<!-- 해당 링크에서 가져온 주석들 -->
+	<!-- https://mybatis.org/spring/apidocs/org/mybatis/spring/SqlSessionFactoryBean.html#setMapperLocations(org.springframework.core.io.Resource...) -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- setDataSource(DataSource source) -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- setConfigLocation(Resource configLocation)  MyBatis config xml-->
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
+		<!-- setMapperLocations(Resource... mapperLocations) SQL문이 포함 된 mapper xml -->
+		<property name="mapperLocations">
+			<list>
+				<!-- 앞에 * 붙이면 뒤에 Mapper.xml로 끝나는거 다 가져옴 -->
+				<!-- <value>classpath:mybatis/UserMapper.xml</value> -->
+				<!-- <value>classpath:mybatis/CustomerMapper.xml</value> -->
+				<!-- <value>classpath:mybatis/StudentMapper.xml</value> -->
+				<value>classpath:mybatis/*Mapper.xml</value>
+			</list>
+		</property>
+	</bean>
+		
+	<!-- SqlSession 설정 constructor injection 방식만 가능함(기본 생성자가 없어서) -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
 </beans>

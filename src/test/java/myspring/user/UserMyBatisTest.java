@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
@@ -22,11 +23,22 @@ public class UserMyBatisTest {
 	@Autowired
 	DataSource dataSource;
 	
+	@Autowired
+	SqlSessionFactory sessionFactory;
+	
+	@Test
+	void sqlSession() {
+		// 잘 나오면 spring-beans-mybatis.xml의 SqlSessionFactoryBean 설정이 잘 된 것
+		System.out.println(sessionFactory.getClass().getName());
+	}
+	
+	
 	@Test
 	void connection() {
 		try {
 			Connection connection = dataSource.getConnection();
 			DatabaseMetaData metaData = connection.getMetaData();
+			
 			logger.debug("DB URL = " + metaData.getURL());
 			logger.debug("DB Username = " + metaData.getUserName());
 			logger.debug("DB Vendor Name = " + metaData.getDatabaseProductName());
