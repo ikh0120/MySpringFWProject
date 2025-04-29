@@ -44,7 +44,7 @@ public class HelloConfig {
 	 * 메서드를 선언하고 고친 다음
 	 * @Bean을 붙이면 빈으로 등록 가능
 	 */
-	@Bean	
+	@Bean("strPrinter")	
 	public Printer stringPrinter() {
 		return new StringPrinter();
 	}
@@ -63,7 +63,7 @@ public class HelloConfig {
 		 * 변동될 수 있는 값을 한 번에 바꿀 수 있도록 넣어주는 것
 		 * env.getProperty("myname1") == "스프링" // env.getProperty는 값을 가져와 줌
 		 */
-		hello.setName(env.getProperty("myname1")); //myName1=스프링
+		hello.setName(env.getProperty("myName1")); //myName1=스프링
 		hello.setPrinter(stringPrinter());
 		hello.setNames(namesList());
 		return hello;
@@ -71,6 +71,11 @@ public class HelloConfig {
 	
 	@Bean
 	public List<String> namesList(){
-		return Arrays.asList("Java","Spring","Kotlin"); // asList(T... a) 여기서 ...은 가변 인자라 몇개든지 인수가 들어갈 수 있음
+		// env.getProperty()로 읽어옴
+		String names = env.getProperty("names.list.of.strings");
+//		String[] strArray = names.split(",");
+//		asList(): 배열을 List로 변경
+//		return Arrays.asList(strArray);
+		return Arrays.asList(names.split(","));
 	}
 }
