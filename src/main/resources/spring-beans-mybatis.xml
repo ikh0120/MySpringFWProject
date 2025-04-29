@@ -34,10 +34,18 @@
 			</list>
 		</property>
 	</bean>
-		
+	
 	<!-- SqlSession 설정 constructor injection 방식만 가능함(기본 생성자가 없어서) -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 2025-04-29 13:00 -->
+	<!-- MapperScannerConfigurer 설정 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="**.dao.mapper"/> 
+		<!--  <property name="basePackage" value="myspring.**.dao.mapper"/> --><!-- **: 디렉토리 의미 -->
+		<property name="sqlSessionTemplateBeanName" value="sqlSession" /> 
 	</bean>
 	
 </beans>

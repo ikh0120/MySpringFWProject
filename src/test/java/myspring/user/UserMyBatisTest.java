@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import myspring.user.dao.mapper.UserMapper;
 import myspring.user.vo.UserVO;
 
 @ExtendWith(SpringExtension.class)
@@ -35,14 +36,24 @@ public class UserMyBatisTest {
 	@Autowired
 	SqlSession sqlSession; //SQL을 실행할 수 있는 객체
 	
+	@Autowired
+	UserMapper userMapper;
+	
 	@Test
-	void userMapper() {
+	void mapper() {
+		// 밑에처럼 길게 안써도 되서 코드 오류 가능성이 현저히 낮아짐
+		UserVO user = userMapper.selectUserById("gildong");
+		logger.debug(user);
+	}
+	
+	@Test @Disabled
+	void userMapper() { // 네임스페이스를 바꿔서 Disabled
 		System.out.println("=================");
 		UserVO user = sqlSession.selectOne("userNS.selectUserById", "dooly"); // 공백이나 오타 실수나면 무조건 오류
 		logger.debug(user);
 	}
 	
-	@Test 
+	@Test @Disabled
 	void sqlSession() {
 		// 잘 나오면 spring-beans-mybatis.xml의 SqlSessionFactoryBean 설정이 잘 된 것
 		System.out.println("=================");
