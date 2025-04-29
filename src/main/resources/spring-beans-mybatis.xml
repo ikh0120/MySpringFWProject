@@ -30,8 +30,6 @@
 			<list>
 				<!-- 앞에 * 붙이면 뒤에 Mapper.xml로 끝나는거 다 가져옴 -->
 				<!-- <value>classpath:mybatis/UserMapper.xml</value> -->
-				<!-- <value>classpath:mybatis/CustomerMapper.xml</value> -->
-				<!-- <value>classpath:mybatis/StudentMapper.xml</value> -->
 				<value>classpath:mybatis/*Mapper.xml</value>
 			</list>
 		</property>
