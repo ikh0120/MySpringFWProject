@@ -20,6 +20,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import myspring.user.dao.mapper.UserMapper;
+import myspring.user.service.UserService;
 import myspring.user.vo.UserVO;
 
 @ExtendWith(SpringExtension.class)
@@ -39,7 +40,17 @@ public class UserMyBatisTest {
 	@Autowired
 	UserMapper userMapper;
 	
+	@Autowired
+	UserService userService;
+	
 	@Test
+	void service() {
+		userService.insertUser(new UserVO("boot", "아임부트", "남", "부산"));
+		UserVO user = userService.getUser("boot");
+		logger.debug(user);
+	}
+	
+	@Test @Disabled
 	void mapper() {
 		// 밑에처럼 길게 안써도 되서 코드 오류 가능성이 현저히 낮아짐
 		UserVO user = userMapper.selectUserById("gildong");
