@@ -35,14 +35,24 @@ public class CustomerSpringTest{
 	@Autowired
 	CustomerDAO custDAO;
 	
-	@Autowired
-	CustomerMapper custMapper;
 	
 	@Test
 	void testCustomer() {
-		custService.insertCustomer(new CustomerVO("aaaa@naver.com", "SKShildus", 26));
+		// null값 테스트
+		assertNotNull(custService);
+		assertNotNull(custDAO);
+		//데이터 삽입
+//		custService.insertCustomer(new CustomerVO("aaaa@naver.com", "SKShildus", 26));
+//		custService.insertCustomer(new CustomerVO("bbbb@naver.com", "SKShildus2", 27));
+//		custService.insertCustomer(new CustomerVO("cccc@naver.com", "SKShildus3", 28));
 		
-		
+		int i = 0;
+		for (CustomerVO cust : custService.getAllCustomerList()) {
+			i++; // id는 auto_increment여서 1씩 증가하기에 i를 증가시키며 비교
+			assertEquals(cust.getId(), i);
+			//customer 테이블 레코드 출력
+			System.out.println(cust.getId()+"\t"+cust.getEmail()+"\t"+cust.getName()+"\t"+cust.getAge()+"\t"+cust.getEntry_date());
+		}
 		
 		
 	}

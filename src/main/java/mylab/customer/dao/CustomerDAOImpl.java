@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import mylab.customer.dao.mapper.CustomerMapper;
 import mylab.customer.vo.CustomerVO;
 
-public class CustomerDAOImpl implements CustomerDAO, CustomerMapper{
+@Repository
+public class CustomerDAOImpl implements CustomerDAO{
 
 	@Autowired
 	CustomerMapper customerMapper;
@@ -19,10 +22,6 @@ public class CustomerDAOImpl implements CustomerDAO, CustomerMapper{
 		return customerMapper.selectAllCustomer();
 	}
 	
-	@Override
-	public CustomerVO selectCustomerById(int id) {
-		return customerMapper.selectCustomerById(id);
-	}
 	
 	@Override
 	public void insertCustomer(CustomerVO customer) {

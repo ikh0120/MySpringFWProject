@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import mylab.customer.vo.CustomerVO;
 
-@Service
+
 public interface CustomerService{
 	public List<CustomerVO> getAllCustomerList();
 	

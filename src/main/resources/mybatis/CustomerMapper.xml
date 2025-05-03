@@ -3,17 +3,17 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- CustomerMapper.xml -->
-<mapper namespace="mylab.customer.dao.mapper">
+<mapper namespace="mylab.customer.dao.mapper.CustomerMapper">
 		
-	<select id="selectAllCustomer" resultType="CustomerVO">
+	<select id="selectAllCustomer" resultType="mylab.customer.vo.CustomerVO">
 		select * from customer order by id
 	</select>
 	
-	<select id="selectCustomer" parameterType="int" resultType="CustomerVO">
+	<select id="selectCustomer" parameterType="int" resultType="mylab.customer.vo.CustomerVO">
 		select * from customer where id=#{id}
 	</select>
 	
-	<insert id="insertCustomer" parameterType="CustomerVO">
+	<insert id="insertCustomer" parameterType="mylab.customer.vo.CustomerVO">
 		insert into customer(email, name, age)
 		values(#{email}, #{name}, #{age})
 	</insert>
