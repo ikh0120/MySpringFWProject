@@ -44,7 +44,7 @@
 	<!-- MapperScannerConfigurer 설정 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="**.dao.mapper"/> 
-		<!--  <property name="basePackage" value="myspring.**.dao.mapper"/> --><!-- **: 디렉토리 의미 -->
+		<!--  <property name="basePackage" value="myspring.**.dao.mapper"/> --><!-- **: 전체 디렉토리 의미 -->
 		<property name="sqlSessionTemplateBeanName" value="sqlSession" /> 
 	</bean>
 	
