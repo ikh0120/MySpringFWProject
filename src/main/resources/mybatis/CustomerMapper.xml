@@ -9,7 +9,7 @@
 		select * from customer order by id
 	</select>
 	
-	<select id="selectCustomer" parameterType="int" resultType="mylab.customer.vo.CustomerVO">
+	<select id="selectCustomerById" parameterType="int" resultType="mylab.customer.vo.CustomerVO">
 		select * from customer where id=#{id}
 	</select>
 	

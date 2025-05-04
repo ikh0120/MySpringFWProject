@@ -26,15 +26,10 @@
 	<!-- 해당 링크에서 가져온 주석들 -->
 	<!-- https://mybatis.org/spring/apidocs/org/mybatis/spring/SqlSessionFactoryBean.html#setMapperLocations(org.springframework.core.io.Resource...) -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- setDataSource(DataSource source) -->
-		<property name="dataSource" ref="dataSource" />
-		<!-- setConfigLocation(Resource configLocation)  MyBatis config xml-->
-		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
-		<!-- setMapperLocations(Resource... mapperLocations) SQL문이 포함 된 mapper xml -->
-		<property name="mapperLocations">
+		<property name="dataSource" ref="dataSource" /> 	<!-- setDataSource(DataSource source) -->		
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" /> <!-- MyBatis 기본 설정 파일 위치 --> 
+		<property name="mapperLocations"> <!-- SQL 매핑 XML 파일 위치 -->
 			<list>
-				<!-- 앞에 * 붙이면 뒤에 Mapper.xml로 끝나는거 다 가져옴 -->
-				<!-- <value>classpath:mybatis/UserMapper.xml</value> -->
 				<value>classpath:mybatis/*Mapper.xml</value>
 			</list>
 		</property>

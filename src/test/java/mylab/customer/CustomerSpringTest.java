@@ -23,12 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(locations = "classpath:spring-beans-mybatis.xml")
 public class CustomerSpringTest{
 	
-	SqlSession sqlSession;
-	
-	SqlSessionFactory sqlSessionFactory;
-	
-	DataSource datasource;
-	
 	@Autowired
 	CustomerService custService;
 	
@@ -52,6 +46,7 @@ public class CustomerSpringTest{
 			assertEquals(cust.getId(), i);
 			//customer 테이블 레코드 출력
 			System.out.println(cust.getId()+"\t"+cust.getEmail()+"\t"+cust.getName()+"\t"+cust.getAge()+"\t"+cust.getEntry_date());
+			custService.getCustomerInfo(i);
 		}
 		
 		
