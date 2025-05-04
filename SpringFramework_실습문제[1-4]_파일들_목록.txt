@@ -1,0 +1,20 @@
+src/main/java
+mylab.customer.service
+	- CustomerService.java
+	- CustomerServiceImpl.java
+mylab.customer.dao
+	- CustomerDAO.java
+	- CustomerDAOImpl.java
+mylab.customer.dao.mapper
+	- CustomerMapper.java
+
+src/main/resources/
+	- spring-beans-mybatis.xml
+	
+src/main/resources/mybatis
+	- CustomerMapper.xml
+	- values.properties
+
+src/test/java
+mylab.customer
+	- CustomerSpringTest.java

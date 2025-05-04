@@ -15,6 +15,7 @@
 	<context:property-placeholder location="classpath:values.properties"/>
 	
 	<!-- DataSource 구현체인 HikariDataSource 클래스를 Bean으로 설정 -->
+	<!-- 쉽게 말해 DB의 기본 정보 설정 -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
 		p:driverClassName="${db.driverClass}"
 		p:jdbcUrl="${db.url}" 
@@ -44,7 +45,7 @@
 	<!-- MapperScannerConfigurer 설정 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="**.dao.mapper"/> 
-		<!--  <property name="basePackage" value="myspring.**.dao.mapper"/> --><!-- **: 전체 디렉토리 의미 -->
+		<!-- setSqlSessionTemplateBeanName(String name): MyBatis의 MapperScannerConfigurer가 사용할 SqlSessionTemplate Bean의 이름을 지정-->
 		<property name="sqlSessionTemplateBeanName" value="sqlSession" /> 
 	</bean>
 	
