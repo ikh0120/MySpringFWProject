@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import mylab.customer.dao.CustomerDAO;
 import mylab.customer.vo.CustomerVO;
 
+//비즈니스 로직 구현(DAO 호출)
+//DAO 또는 Mapper 인터페이스를 호출하여 데이터 처리
 @Service 
 public class CustomerServiceImpl implements CustomerService{
 	

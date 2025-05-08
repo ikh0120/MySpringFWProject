@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- Mapper, 데이터베으스 설정 등 각종 설정을 포함  (<select>, <insert> 등) -->
+<!-- 실제 SQL 쿼리를 정의하는 파일 -->
+<!-- Mapper 인터페이스와 연결되어 SQL 실행 -->
 <!-- CustomerMapper.xml -->
 <mapper namespace="mylab.customer.dao.mapper.CustomerMapper">
 		

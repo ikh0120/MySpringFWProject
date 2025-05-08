@@ -2,6 +2,8 @@ package mylab.customer.vo;
 
 import java.util.Date;
 
+//DB 테이블과 1대1 매핑되는 데이터 객체
+//테이블의 각 행(row, 가로)이 VO 객체 하나로 변환됨
 public class CustomerVO{
 	private int id;
 	private String email;

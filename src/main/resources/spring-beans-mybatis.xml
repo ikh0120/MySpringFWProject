@@ -5,6 +5,10 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- Mapper, 데이터베이스 설정 등 각종 설정을 포함 -->
+	<!-- DB 연결, Mapper 등록 등의 설정 포함 -->
+	
+	
 	<!-- spring-beans-mybatis.xml -->
 	
 	<!-- dao, service auto scanning -->
